@@ -220,20 +220,6 @@ class ECA_NonLocal(nn.Module):
 
         return x
 
-        
-
-class ECA_PAM(nn.Module):
-    def __init__(self, channels, eca_kernel_size=7):
-        super().__init__()
-        self.channel_attention = ECA(channels, k_size=eca_kernel_size)
-        self.position_attention = PAM(channels)
-    
-    def forward(self, x):
-        x = self.channel_attention(x)
-        x = self.position_attention(x)
-
-        return x
-
 
 
 class CBAM(nn.Module):
